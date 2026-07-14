@@ -2,5 +2,6 @@
 
 To run:
 
-cd .\winningtechtest\
+cd .\winningtechtest\\
+
 npm start
