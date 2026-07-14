@@ -7,9 +7,11 @@
 } @else {
   <div class="product-grid">
     @for (product of products(); track product.sku) {
-      <app-product-card [product]="product" />
+      <app-product-card [product]="product" (addToCart)="onAddToCart($event)" />
     } @empty {
       <p class="status">No products found.</p>
     }
   </div>
 }
+
+<app-product-details-modal [product]="selectedProduct()" (closed)="onModalClosed()" />

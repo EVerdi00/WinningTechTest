@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Product } from '../../../core/models/products';
 
@@ -10,4 +10,9 @@ import { Product } from '../../../core/models/products';
 })
 export class ProductCard {
   product = input.required<Product>();
+  addToCart = output<Product>();
+
+  onAddToCartClicked(): void {
+    this.addToCart.emit(this.product());
+  }
 }
