@@ -7,7 +7,12 @@
       </a>
     </li>
     <li>
-      <a routerLink="/products" routerLinkActive="is-active">Products</a>
+      <a routerLink="/products" routerLinkActive="is-active">
+        Products
+        @if (cartStore.count() > 0) {
+          <span class="navbar__badge">{{ cartStore.count() }}</span>
+        }
+      </a>
     </li>
   </ul>
 </nav>
