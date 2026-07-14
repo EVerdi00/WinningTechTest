@@ -11,8 +11,12 @@
           <p class="modal__sku">SKU: {{ p.sku }}</p>
 
           <div class="modal__pricing">
-            <span class="modal__price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</span>
-            <span class="modal__rrp">RRP: {{ p.rrp | currency:'USD':'symbol':'1.0-0' }}</span>
+            <span class="modal__price">
+                {{ p.price | currency:'USD':'symbol':'1.0-0' }}
+            </span>
+            <span class="modal__rrp">
+                {{ (p.rrp - p.price) | currency:'USD':'symbol':'1.0-0' }} off RRP of {{ p.rrp | currency:'USD':'symbol':'1.0-0' }}
+            </span>
           </div>
 
           <p class="modal__added">✓ Added to Cart</p>
