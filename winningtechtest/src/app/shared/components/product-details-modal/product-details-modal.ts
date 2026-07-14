@@ -20,6 +20,5 @@ export class ProductDetailsModal {
 
   close(): void {
     this.dialogRef()?.nativeElement.close();
-    this.closed.emit();
   }
 }
