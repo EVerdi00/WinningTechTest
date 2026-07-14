@@ -1,0 +1,27 @@
+<article class="product-card">
+  <div class="product-card__image">
+    <img [src]="product().image" [alt]="product().name" />
+  </div>
+
+  <h2 class="product-card__name">{{ product().name }}</h2>
+
+  <hr class="product-card__divider" />
+
+  <div class="product-card__pricing">
+    <span class="product-card__price">
+      {{ product().price | currency:'USD':'symbol':'1.0-0' }}
+    </span>
+    <span class="product-card__savings">
+      {{ (product().rrp - product().price) | currency:'USD':'symbol':'1.0-0' }} off RRP of {{ product().rrp | currency:'USD':'symbol':'1.0-0' }}
+    </span>
+  </div>
+
+  <div class="product-card__actions">
+    <button type="button" class="product-card__btn product-card__btn--primary">
+      Add to Cart
+    </button>
+    <button type="button" class="product-card__btn product-card__btn--secondary">
+      Compare
+    </button>
+  </div>
+</article>

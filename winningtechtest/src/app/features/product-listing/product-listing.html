@@ -1,1 +1,15 @@
-<p>product-listing works!</p>
+<h1>Products</h1>
+
+@if (loading()) {
+  <p class="status">Loading products…</p>
+} @else if (error()) {
+  <p class="status status--error">{{ error() }}</p>
+} @else {
+  <div class="product-grid">
+    @for (product of products(); track product.sku) {
+      <app-product-card [product]="product" />
+    } @empty {
+      <p class="status">No products found.</p>
+    }
+  </div>
+}
