@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal, viewChild } from '@angular/core';
 import { Product } from '../../core/models/products';
 import { ProductService } from '../../core/services/product';
+import { CartStore } from '../../core/store/cart/cart.store';
 import { ProductCard } from '../../shared/components/product-card/product-card';
 import { ProductDetailsModal } from '../../shared/components/product-details-modal/product-details-modal';
 
@@ -12,6 +13,7 @@ import { ProductDetailsModal } from '../../shared/components/product-details-mod
 })
 export class ProductListing implements OnInit {
   private productService = inject(ProductService);
+  private cartStore = inject(CartStore);
   private modal = viewChild(ProductDetailsModal);
 
   protected products = signal<Product[]>([]);
@@ -34,6 +36,7 @@ export class ProductListing implements OnInit {
   }
 
   protected onAddToCart(product: Product): void {
+    this.cartStore.addItem(product);
     this.selectedProduct.set(product);
     this.modal()?.open();
   }
