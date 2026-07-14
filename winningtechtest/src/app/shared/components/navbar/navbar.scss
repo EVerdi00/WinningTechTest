@@ -21,18 +21,35 @@
     padding: 0;
 
     a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       color: white;
       text-decoration: none;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
 
       &.is-active {
-        background: #334155;
+        background: #0a4a87;
       }
 
       &:hover {
-        background: #475569;
+        background: #1373c9;
       }
     }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    background: #f57c00;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 999px;
   }
 }
