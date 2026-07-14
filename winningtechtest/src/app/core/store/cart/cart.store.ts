@@ -44,14 +44,6 @@ export const CartStore = signalStore(
           items: [...items, { product, quantity: 1 }]
         });
       }
-    },
-    removeItem(sku: string): void {
-      patchState(store, {
-        items: store.items().filter((item) => item.product.sku !== sku)
-      });
-    },
-    clear(): void {
-      patchState(store, { items: [] });
     }
   }))
 );
